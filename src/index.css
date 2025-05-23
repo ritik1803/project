@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased text-gray-800 bg-gray-50;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-2 rounded-lg 
+           hover:from-primary-600 hover:to-primary-700 transition-all duration-300 
+           shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply bg-gradient-to-r from-secondary-500 to-secondary-600 text-white px-6 py-2 rounded-lg 
+           hover:from-secondary-600 hover:to-secondary-700 transition-all duration-300 
+           shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300;
+  }
+
+  .input {
+    @apply w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary-500 
+           focus:border-transparent transition-all duration-200;
+  }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  @apply !text-white bg-black/30 !w-10 !h-10 rounded-full transition-all duration-300 
+         hover:bg-black/50 backdrop-blur-sm;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  @apply !text-base;
+}
+
+.swiper-pagination-bullet {
+  @apply !bg-white/70 !opacity-70;
+}
+
+.swiper-pagination-bullet-active {
+  @apply !opacity-100;
+}
+
+.product-slider {
+  padding: 20px;
+}
+
+@screen md {
+  .product-slider {
+    padding: 40px;
+  }
+}
+
+.product-slider .swiper-button-next,
+.product-slider .swiper-button-prev {
+  @apply !text-gray-800 !bg-white/90 !shadow-lg hover:!bg-white;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    @apply !hidden;
+  }
+
+  .swiper {
+    @apply !h-[300px];
+  }
+
+  .product-slider {
+    padding: 0;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded-full hover:bg-gray-500 transition-colors;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better tap highlights for mobile */
+@media (max-width: 768px) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Loading skeleton animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Better focus styles */
+:focus-visible {
+  @apply outline-2 outline-primary-500 outline-offset-2;
+}
+
+/* Improved button active state */
+button:active {
+  @apply scale-95;
+}
+
+/* Glass effect */
+.glass {
+  @apply bg-white/80 backdrop-blur-lg border border-white/20;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500;
+}
+
+/* Admin panel specific styles */
+.admin-card {
+  @apply bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 
+         border border-gray-100 hover:border-primary-100;
+}
+
+.admin-stat {
+  @apply flex items-center gap-4 p-6 rounded-xl bg-gradient-to-br animate-gradient;
+}
+
+.admin-nav-item {
+  @apply flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 
+         hover:bg-primary-50 text-gray-700 hover:text-primary-600;
+}
+
+.admin-nav-item.active {
+  @apply bg-primary-500 text-white hover:bg-primary-600 hover:text-white;
+}
